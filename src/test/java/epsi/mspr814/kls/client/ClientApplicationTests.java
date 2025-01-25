@@ -1,10 +1,10 @@
-package epsi.mspr814.kls.clients.clients;
+package epsi.mspr814.kls.client;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ClientsApplicationTests {
+class ClientApplicationTests {
 
     @Test
     void contextLoads() {
