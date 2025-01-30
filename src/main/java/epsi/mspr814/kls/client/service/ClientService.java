@@ -1,17 +1,34 @@
 package epsi.mspr814.kls.client.service;
 
-import epsi.mspr814.kls.client.model.Client;
-import epsi.mspr814.kls.client.repository.ClientRepository;
+import epsi.mspr814.kls.client.model.Person;
+import epsi.mspr814.kls.client.repository.PersonRepository;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
+@Data
 @Service
 public class ClientService {
 
     @Autowired
-    private ClientRepository clientRepository;
-
-    public Client createClient(Client client) {
-        return clientRepository.save(client);
+    private PersonRepository personRepository;
+   
+    public Optional<Person> getPerson(final Long id) {
+        return personRepository.findById(id);
     }
+
+    public Iterable<Person> getPersons() {
+        return personRepository.findAll();
+    }
+
+    public void deletePerson(final Long id) {
+        personRepository.deleteById(id);
+    }
+
+    public Person savePerson(Person person) {
+        return personRepository.save(person);
+    }
+
 }
