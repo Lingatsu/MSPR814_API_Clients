@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    name: Build & Test API
+    name: Build, Test API & Push to Dockerhub
     runs-on: ubuntu-latest
 
     steps:
@@ -28,13 +28,13 @@ jobs:
 
       - name: Run tests
         run: mvn test
-
-  docker:
-    name: Build & Push Docker Image
-    runs-on: ubuntu-latest
-    needs: build
-
-    steps:
+#
+#  docker:
+#    name: Build & Push Docker Image
+#    runs-on: ubuntu-latest
+#    needs: build
+#
+#    steps:
 
 #      - name: Checkout repository
 #        uses: actions/checkout@v3
@@ -51,7 +51,8 @@ jobs:
   deploy:
     name: Deploy to Server
     runs-on: ubuntu-latest
-    needs: docker
+#    needs: docker
+    needs: build
 
     steps:
       - name: SSH into server and deploy
