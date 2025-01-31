@@ -38,8 +38,8 @@ jobs:
       - name: Debug workspace
         run: ls -R
 
-      - name: Checkout repository
-        uses: actions/checkout@v3
+#      - name: Checkout repository
+#        uses: actions/checkout@v3
 
       - name: Debug workspace 2
         run: ls -R
